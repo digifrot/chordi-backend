@@ -15,4 +15,9 @@ app.use(express.json());
 
 app.use('/songs', songsRoute);
 
+app.use(cors({
+  origin: 'https://chord-manager.vercel.app', // or '*'' for testing
+  credentials: true
+}));
+
 app.listen(PORT, () => console.log(`🎵 Server running on port ${PORT}`));
