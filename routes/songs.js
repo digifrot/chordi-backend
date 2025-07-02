@@ -43,8 +43,8 @@ router.put('/:id', async (req, res) => {
 // Get all songs
 router.get('/', async (req, res) => {
   try {
-    const songs = await Song.find({ userId: req.userId });
-    res.json(songs);
+    const songs = await Song.find({ userId: req.userId }).select('title timestamp tempo');
+res.json(songs);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

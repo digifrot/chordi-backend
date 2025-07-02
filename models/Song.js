@@ -8,4 +8,6 @@ const SongSchema = new mongoose.Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
+SongSchema.index({ userId: 1, title: 1 });
+
 module.exports = mongoose.model('Song', SongSchema);
